@@ -1,0 +1,24 @@
+{
+	"cards": [
+		{
+			"id": 1,
+			"ques": "Hello",
+			"ans": "World"
+		},
+		{
+			"id": 2,
+			"ques": "How is your day?",
+			"ans": "Blah"
+		},
+		{
+			"id": 3,
+			"ques": "What do you miss?",
+			"ans": "attention"
+		},
+		{
+			"id": 4,
+			"ques": "Hey?",
+			"ans": "Sexy Lady!"
+		}
+	]
+}
