@@ -13,17 +13,25 @@ class Form extends Component{
 		this.props.close();
 	}
 
-	onChange (){ console.log('Form works!');}
-
 	onSubmit(e){
 	      e.preventDefault();
 
-	      {/* gets value from input field */}
+
 	      var textFront = this.refs.front.value.trim();
 	      var textBack = this.refs.back.value.trim();
 
-	      console.log(textFront, textBack);
-}
+	      if (!textFront  || ! textBack) {
+	        alert("Please enter task.");
+	        return;
+	      }
+
+	      this.props.AddText(textFront,textBack );
+
+	      this.refs.front.value = " ";
+	      this.refs.back.value = " ";
+
+
+	}
 
 	render(props){
 		return(

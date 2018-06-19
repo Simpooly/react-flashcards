@@ -25,7 +25,7 @@ class App extends Component {
       currentCard: {}
     }
   }
-
+  //This works with the database
   componentWillMount(){
     const currentCards = this.state.cards;
 
@@ -71,7 +71,19 @@ class App extends Component {
   }
   // Get the <span> element that closes the modal
 
+  handleNewText(textFront, textBack){
 
+    var newCard = {
+        id: this.state.cards.length + 1 ,
+        ques: textFront,
+        ans: textBack,
+      }
+
+      this.setState({cards: this.state.cards.concat(newCard)});
+    //  console.log(newCard);
+    //console.log("1:" + textFront);
+    //console.log("2:" + textBack);
+  }
 
   render() {
     return (
@@ -86,7 +98,7 @@ class App extends Component {
 
         </div>
           <CreateCardButton createCard={this.createNewCard} />
-          <Form close={this.closeModal} />
+          <Form close={this.closeModal} AddText={this.handleNewText.bind(this)} />
       </div>
     );
   }
