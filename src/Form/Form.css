@@ -1,0 +1,13 @@
+label {
+	display: inline-block;
+	margin-bottom: .5rem;
+	cursor: default;
+}
+
+.form-group {
+    padding: 1rem;}
+
+form{
+	padding: 2rem;
+	width:80%;
+}

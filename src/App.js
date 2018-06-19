@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Card from './Card/Card';
 import Drawbutton from './Drawbutton/Drawbutton';
+import Form from './Form/Form';
 import firebase from 'firebase/app';
 import 'firebase/database';
 
@@ -61,6 +62,10 @@ class App extends Component {
         </div>
         <div className="buttonRow">
           <Drawbutton drawCard={this.updateCard}/>
+        </div>
+        <div>
+          <h2> Create new card </h2>
+            <Form />
         </div>
 
       </div>
