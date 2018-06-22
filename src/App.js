@@ -14,8 +14,8 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    this.app = firebase.initializeApp(DB_CONFIG);
-    this.database = this.app.database().ref().child('cards');
+    this.app = firebase.initializeApp(DB_CONFIG); //this uses the firebase database
+    this.database = this.app.database().ref().child('cards'); //ref acesses different branches in the database
     this.updateCard = this.updateCard.bind(this);
     this.createNewCard = this.createNewCard.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -29,6 +29,7 @@ class App extends Component {
   componentWillMount(){
     const currentCards = this.state.cards;
 
+    //gets our cards fron firebase
     this.database.on('child_added', snap => {
       currentCards.push({
         id: snap.key,
@@ -79,10 +80,12 @@ class App extends Component {
         ans: textBack,
       }
 
-      this.setState({cards: this.state.cards.concat(newCard)});
-    //  console.log(newCard);
-    //console.log("1:" + textFront);
-    //console.log("2:" + textBack);
+    //Adds new card to the cards database
+    this.database.push(newCard);
+
+    //This stores int he browser, gone one refresh
+    // this.setState({cards: this.state.cards.concat(newCard)});
+
   }
 
   render() {
